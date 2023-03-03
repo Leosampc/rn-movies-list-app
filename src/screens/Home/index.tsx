@@ -3,8 +3,8 @@ import { FlatList, ListRenderItem, ActivityIndicator } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { moviesAPI } from '@/services';
 import { IMovie } from '@/types';
-import * as Styled from './styled';
 import { MovieListItem, MovieListSkeleton } from './components';
+import * as Styled from './styled';
 
 function Home(): JSX.Element {
 	const theme = useTheme();
@@ -16,7 +16,9 @@ function Home(): JSX.Element {
 		setIsLoading(true);
 		try {
 			const response = await moviesAPI.getUpcoming(page);
-			setUpComingMovies((prevState) => [...prevState, ...response]);
+			setUpComingMovies((prevState) => {
+				return page > 1 ? [...prevState, ...response] : response;
+			});
 		} catch (error) {
 			console.log(error);
 		} finally {
@@ -28,12 +30,7 @@ function Home(): JSX.Element {
 		if (!isLoading) setCurrentPage((prevState) => prevState + 1);
 	}, [isLoading]);
 
-	const onRefresh = () => {
-		setCurrentPage(() => {
-			setUpComingMovies([]);
-			return 1;
-		});
-	};
+	const onRefresh = () => setCurrentPage(1);
 
 	const renderListItem: ListRenderItem<IMovie> = useCallback(
 		({ item }) => <MovieListItem data={item} />,
