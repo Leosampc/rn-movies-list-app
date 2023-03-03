@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { IColors } from '@/types';
 
 interface Props extends TextProps {
-	color: keyof IColors;
+	color?: keyof IColors;
 	fontWeight?:
 		| 'normal'
 		| 'bold'
@@ -20,6 +20,7 @@ interface Props extends TextProps {
 }
 
 export default styled.Text<Props>`
-	color: ${({ theme, color }) => theme.colors[color] || theme.colors.black};
+	color: ${({ theme, color }) =>
+		color ? theme.colors[color] : theme.colors.black};
 	font-weight: ${({ fontWeight }) => fontWeight ?? 'normal'};
 `;
