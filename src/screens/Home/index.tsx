@@ -37,6 +37,8 @@ function Home(): JSX.Element {
 		[]
 	);
 
+	const keyExtractor = (item: IMovie) => item.id.toString();
+
 	const renderListFooter = () => {
 		if (isLoading) return null;
 		return (
@@ -55,17 +57,19 @@ function Home(): JSX.Element {
 	return (
 		<Styled.Screen>
 			<FlatList<IMovie>
+				extraData={currentPage}
+				data={upComingMovies}
 				contentContainerStyle={Styled.styles.list}
 				showsVerticalScrollIndicator={false}
-				data={upComingMovies}
 				renderItem={renderListItem}
-				keyExtractor={(item) => item.id.toString()}
+				keyExtractor={keyExtractor}
 				ItemSeparatorComponent={Styled.SeparatorComponent}
 				ListFooterComponent={renderListFooter}
 				onEndReached={onEndReached}
-				onEndReachedThreshold={0.1}
+				onEndReachedThreshold={0.2}
 				onRefresh={onRefresh}
 				refreshing={isLoading}
+				maxToRenderPerBatch={8}
 			/>
 		</Styled.Screen>
 	);
