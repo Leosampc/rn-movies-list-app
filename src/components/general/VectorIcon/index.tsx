@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleProp, View, ViewStyle } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -51,13 +52,23 @@ interface Props {
 	name: string;
 	type: IconType;
 	color: IColors | string;
+	containerStyle?: StyleProp<ViewStyle>;
 }
-function VectorIcon({ type, color, ...props }: Props): JSX.Element {
+function VectorIcon({
+	type,
+	color,
+	containerStyle,
+	...props
+}: Props): JSX.Element {
 	const theme = useTheme();
 	const Icon = iconType[type];
 	const iconColor = theme.colors[color as keyof IColors] ?? color;
 
-	return <Icon {...props} color={iconColor} />;
+	return (
+		<View style={containerStyle}>
+			<Icon {...props} color={iconColor} />
+		</View>
+	);
 }
 
 export default VectorIcon;
