@@ -1,4 +1,4 @@
-import { MovieStatusType } from '@/types';
+import { GenreType, MovieStatusType } from '@/types';
 
 export interface IRemoteMovie {
 	id: number;
@@ -11,6 +11,8 @@ export interface IRemoteMovie {
 	vote_average: number;
 	vote_count: number;
 	status?: MovieStatusType;
+	genre?: GenreType[];
+	runtime?: number;
 }
 
 export type GetUpcomingMoviesResponseType = {

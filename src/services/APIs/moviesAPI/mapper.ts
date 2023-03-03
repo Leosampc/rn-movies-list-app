@@ -1,5 +1,5 @@
 import { IMovie } from '@/types';
-import { RemoteMovie } from './types';
+import { IRemoteMovie } from './types';
 
 export const mapper = {
 	parse({
@@ -8,8 +8,9 @@ export const mapper = {
 		release_date,
 		vote_average,
 		vote_count,
+		runtime,
 		...remoteMovie
-	}: RemoteMovie): IMovie {
+	}: IRemoteMovie): IMovie {
 		return {
 			...remoteMovie,
 			backdropPath: backdrop_path,
@@ -17,6 +18,7 @@ export const mapper = {
 			releaseDate: release_date,
 			voteAverage: vote_average,
 			voteCount: vote_count,
+			length: runtime,
 		};
 	},
 };

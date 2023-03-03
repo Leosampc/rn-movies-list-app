@@ -9,6 +9,8 @@ export interface IMovie {
 	voteAverage: number;
 	voteCount: number;
 	status?: MovieStatusType;
+	genres?: GenreType[];
+	length?: number;
 }
 
 export type MovieStatusType =
@@ -19,3 +21,5 @@ export type MovieStatusType =
 	| 'Production'
 	| 'Released'
 	| 'Canceled';
+
+export type GenreType = { id: number; name: string };
