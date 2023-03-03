@@ -19,7 +19,15 @@ function RootNavigator() {
 					headerTintColor: theme.colors.secondary,
 				}}
 			/>
-			<Root.Screen name="MovieDetails" component={MovieDetails} />
+			<Root.Screen
+				name="MovieDetails"
+				component={MovieDetails}
+				options={{
+					title: '',
+					headerTransparent: true,
+					headerTintColor: theme.colors.white,
+				}}
+			/>
 		</Root.Navigator>
 	);
 }
