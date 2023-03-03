@@ -34,7 +34,13 @@ function Home(): JSX.Element {
 		[isLoading]
 	);
 
-	const onRefresh = () => setCurrentPage(1);
+	const onRefresh = useCallback(() => {
+		if (upComingMovies.length === 0) {
+			handleFetchUpComingMovies(1);
+		} else {
+			setCurrentPage(1);
+		}
+	}, [handleFetchUpComingMovies, upComingMovies]);
 
 	const renderListItem: ListRenderItem<IMovie> = useCallback(
 		({ item }) => <MovieListItem data={item} />,
