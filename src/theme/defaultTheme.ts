@@ -7,6 +7,8 @@ export const defaultTheme: DefaultTheme = {
 		primary: '#F9FAFB',
 		secondary: '#6E248D',
 		tertiary: '#BE90D4',
-		grayPrimary: '#B5C5C6',
+		grayPrimary: '#808080',
+		graySecondary: '#D0D0D0',
+		yellowPrimary: '#F9BF3B',
 	},
 };

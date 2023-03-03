@@ -4,7 +4,7 @@ export interface IColors {
 	primary: string;
 	secondary: string;
 	tertiary: string;
-	purplePrimary: string;
-	purpleSecondary: string;
 	grayPrimary: string;
+	graySecondary: string;
+	yellowPrimary: string;
 }
