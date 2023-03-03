@@ -26,9 +26,13 @@ function Home(): JSX.Element {
 		}
 	}, []);
 
-	const onEndReached = useCallback(() => {
-		if (!isLoading) setCurrentPage((prevState) => prevState + 1);
-	}, [isLoading]);
+	const onEndReached = useCallback(
+		(info: { distanceFromEnd: number }) => {
+			if (!isLoading && info.distanceFromEnd > 0)
+				setCurrentPage((prevState) => prevState + 1);
+		},
+		[isLoading]
+	);
 
 	const onRefresh = () => setCurrentPage(1);
 
@@ -40,11 +44,22 @@ function Home(): JSX.Element {
 	const keyExtractor = (item: IMovie) => item.id.toString();
 
 	const renderListFooter = () => {
-		if (isLoading) return null;
+		if (!isLoading) return null;
 		return (
 			<Styled.ListFooter>
 				<ActivityIndicator size="large" color={theme.colors.secondary} />
 			</Styled.ListFooter>
+		);
+	};
+
+	const renderEmptyList = () => {
+		if (isLoading) return null;
+		return (
+			<Styled.EmptyContainer>
+				<Styled.EmptyText color="grayPrimary">
+					{'Sorry, something went wrong :(\n Try again later.'}
+				</Styled.EmptyText>
+			</Styled.EmptyContainer>
 		);
 	};
 
@@ -65,6 +80,7 @@ function Home(): JSX.Element {
 				keyExtractor={keyExtractor}
 				ItemSeparatorComponent={Styled.SeparatorComponent}
 				ListFooterComponent={renderListFooter}
+				ListEmptyComponent={renderEmptyList}
 				onEndReached={onEndReached}
 				onEndReachedThreshold={0.2}
 				onRefresh={onRefresh}

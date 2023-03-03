@@ -1,5 +1,6 @@
 import { StyleSheet, Platform } from 'react-native';
 import styled from 'styled-components/native';
+import { Text } from '@/components';
 
 export const styles = StyleSheet.create({
 	list: {
@@ -25,4 +26,15 @@ export const SeparatorComponent = styled.View`
 export const ListFooter = styled.View`
 	margin-top: 10px;
 	margin-bottom: 5px;
+`;
+
+export const EmptyContainer = styled.View`
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	padding-top: 40px;
+`;
+
+export const EmptyText = styled(Text)`
+	text-align: center;
 `;
