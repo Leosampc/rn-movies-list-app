@@ -1,5 +1,5 @@
 import { moviesAPI } from '@/services/APIs';
-import { movieDetailsMock, upComingMoviesMock } from 'tests/__mocks__';
+import { movieDetailsMock, makeUpComingMoviesMock } from 'tests/__mocks__';
 
 let apiSpy;
 describe('moviesAPI', () => {
@@ -10,6 +10,7 @@ describe('moviesAPI', () => {
 	const page = 1;
 
 	it('Upcoming Movies API success', async () => {
+		const upComingMoviesMock = makeUpComingMoviesMock(1);
 		apiSpy = jest.spyOn(moviesAPI, 'getUpcoming');
 		apiSpy.mockResolvedValueOnce(upComingMoviesMock);
 
