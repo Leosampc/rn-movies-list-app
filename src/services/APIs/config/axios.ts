@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { API_URL, API_KEY } from 'react-native-dotenv';
+
 export const api = axios.create({
 	baseURL: API_URL,
 });
