@@ -33,7 +33,9 @@ describe('Home screen component', () => {
 		apiSpy = jest.spyOn(moviesAPI, 'getUpcoming');
 		apiSpy.mockResolvedValueOnce(upComingMoviesMock);
 
-		const { getByTestId } = renderWithProviders(<Home />);
+		const { getByTestId, queryByTestId } = renderWithProviders(<Home />);
+
+		await waitForElementToBeRemoved(() => queryByTestId('movie-list-skeleton'));
 
 		const list = await waitFor(() => getByTestId('upcoming-movies-list'));
 
