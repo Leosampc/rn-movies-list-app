@@ -29,7 +29,7 @@ function MovieDetails({ route }: Props): JSX.Element {
 			const response = await moviesAPI.getDetails(id);
 			setMovie(response);
 		} catch (error) {
-			console.log(error);
+			console.log(error.message);
 		} finally {
 			setIsLoading(false);
 		}
@@ -61,7 +61,10 @@ function MovieDetails({ route }: Props): JSX.Element {
 
 	if (!movie)
 		return (
-			<Styled.Screen refreshControl={refreshControl()}>
+			<Styled.Screen
+				testID="movie-details-empty-screen"
+				refreshControl={refreshControl()}
+			>
 				<ImageWithLoading
 					width={width}
 					height={imageHeight}
@@ -76,7 +79,10 @@ function MovieDetails({ route }: Props): JSX.Element {
 		);
 
 	return (
-		<Styled.Screen refreshControl={refreshControl()}>
+		<Styled.Screen
+			testID="movie-details-screen"
+			refreshControl={refreshControl()}
+		>
 			<StatusBar barStyle="light-content" />
 			<ImageWithLoading
 				width={width}
