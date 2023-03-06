@@ -10,7 +10,7 @@ module.exports = {
 						rootPathSuffix: './src/',
 					},
 					{
-						rootPathPrefix: '@tests/',
+						rootPathPrefix: 'tests/',
 						rootPathSuffix: './tests/',
 					},
 				],
