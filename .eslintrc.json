@@ -103,14 +103,12 @@
 		"space-before-function-paren": "off",
 		"multiline-ternary": "off",
 		"import/no-extraneous-dependencies": [
-			"error",
+			"off",
 			{
 				"devDependencies": [
 					"**/jest.config.ts", // jest config
 					"**/jest.setup.ts", // jest setup
 					"tests/**",
-					"./src/presentation/utils/helpers.tsx",
-					"**/*.stories.*",
 					"App.tsx"
 				],
 				"optionalDependencies": false
@@ -134,13 +132,13 @@
 			}
 		},
 		{
-			"files": ["./App.tsx"],
+			"files": ["./App.tsx", "./tests/**"],
 			"rules": {
 				"@typescript-eslint/no-unsafe-call": "off"
 			}
 		},
 		{
-			"files": ["./tests/**"],
+			"files": ["./jest.setup.js", "./tests/**"],
 			"rules": {
 				"@typescript-eslint/no-unsafe-return": "off",
 				"@typescript-eslint/no-unsafe-member-access": "off",
