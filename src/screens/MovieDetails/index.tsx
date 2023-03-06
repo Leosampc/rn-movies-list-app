@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { RefreshControl, StatusBar, useWindowDimensions } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { API_IMAGE_URL } from 'react-native-dotenv';
 import { moviesAPI } from '@/services';
 import { Images } from '@/constants';
 import { toHoursAndMinutes, formatDate } from '@/utils';
@@ -11,6 +12,8 @@ import { Info, MovieSkeleton } from './components';
 import * as Styled from './styled';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'MovieDetails'>;
+
+const apiImageSize = 'w500';
 
 function MovieDetails({ route }: Props): JSX.Element {
 	const { id } = route.params;
@@ -79,7 +82,7 @@ function MovieDetails({ route }: Props): JSX.Element {
 				width={width}
 				height={imageHeight}
 				source={{
-					uri: `https://image.tmdb.org/t/p/w500/${movie.backdropPath}`,
+					uri: `${API_IMAGE_URL}/${apiImageSize}/${movie.backdropPath}`,
 				}}
 			/>
 			<Styled.Body>

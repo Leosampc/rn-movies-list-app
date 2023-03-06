@@ -1,5 +1,6 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
+import { API_IMAGE_URL } from 'react-native-dotenv';
 import { useNavigation } from '@react-navigation/native';
 import { formatDate } from '@/utils';
 import { IMovie } from '@/types';
@@ -10,6 +11,9 @@ import * as Styled from './styled';
 interface Props {
 	data: IMovie;
 }
+
+const apiImageSize = 'w185';
+
 function MovieListItem({ data }: Props): JSX.Element {
 	const { height } = useWindowDimensions();
 	const logoHeight = height * 0.18;
@@ -30,7 +34,7 @@ function MovieListItem({ data }: Props): JSX.Element {
 				width={logoWidth}
 				height={logoHeight}
 				radius={7}
-				source={{ uri: `https://image.tmdb.org/t/p/w185/${data.posterPath}` }}
+				source={{ uri: `${API_IMAGE_URL}/${apiImageSize}/${data.posterPath}` }}
 			/>
 			<Styled.InfoContainer>
 				<Styled.Title fontWeight="600">{data.title}</Styled.Title>
