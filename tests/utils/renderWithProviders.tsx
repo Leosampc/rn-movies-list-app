@@ -12,11 +12,7 @@ export const renderWithProviders = (
 	}: PropsWithChildren<Record<string, unknown>>): JSX.Element {
 		return (
 			<ThemeContextProvider>
-				<NavigationContainer>
-					<React.Suspense fallback={'Loading Content...'}>
-						{children}
-					</React.Suspense>
-				</NavigationContainer>
+				<NavigationContainer>{children}</NavigationContainer>
 			</ThemeContextProvider>
 		);
 	}
