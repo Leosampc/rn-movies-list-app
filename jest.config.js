@@ -19,7 +19,7 @@ module.exports = {
 	transformIgnorePatterns: [
 		'node_modules/(?!(react-native|@react-native|@react-navigation|react-native-vector-icons)/)',
 	],
-	setupFilesAfterEnv: ['./jest.setup.js'],
+	setupFilesAfterEnv: ['./jest.setup.js', './tests/__mocks__/axios.ts'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 	moduleNameMapper: {
 		'^react-native-dotenv(.*)$': '<rootDir>/.env',
