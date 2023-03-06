@@ -21,7 +21,7 @@ function Home(): JSX.Element {
 				return page > 1 ? [...prevState, ...response] : response;
 			});
 		} catch (error) {
-			console.log(error);
+			console.log(error.message);
 		} finally {
 			setIsLoading(false);
 		}

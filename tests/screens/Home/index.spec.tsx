@@ -4,7 +4,7 @@ import {
 	cleanup,
 	waitForElementToBeRemoved,
 } from '@testing-library/react-native';
-import { renderWithProviders, scrollListToBottom } from 'tests/utils';
+import { renderWithProviders, scrollListTo } from 'tests/utils';
 import { moviesAPI } from '@/services/APIs';
 import { Home } from '@/screens';
 import { makeUpComingMoviesMock } from 'tests/__mocks__';
@@ -68,7 +68,7 @@ describe('Home screen component', () => {
 		apiSpy.mockResolvedValueOnce(makeUpComingMoviesMock(getUpcomingMockSize));
 
 		waitFor(() => {
-			scrollListToBottom(initialList);
+			scrollListTo('bottom', initialList);
 		});
 
 		await waitForElementToBeRemoved(() => queryByTestId('list-footer'));

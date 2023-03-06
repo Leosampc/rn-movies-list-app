@@ -1,2 +1,2 @@
 export * from './renderWithProviders';
-export * from './scrollListooToBottom';
+export * from './scrollListooTo';

@@ -1,12 +1,18 @@
 import { act, ReactTestInstance } from 'react-test-renderer';
 import { fireEvent } from '@testing-library/react-native';
 
-export const scrollListToBottom = (list: ReactTestInstance) => {
+type OrientationType = 'up' | 'bottom';
+
+export const scrollListTo = (
+	orientation: OrientationType,
+	list: ReactTestInstance
+) => {
+	const contentOffsetY = orientation === 'bottom' ? 500 : -100;
 	act(() => {
 		fireEvent.scroll(list, {
 			nativeEvent: {
 				contentOffset: {
-					y: 500,
+					y: contentOffsetY,
 				},
 				contentSize: {
 					height: 500,
