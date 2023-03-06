@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StatusBar, useWindowDimensions } from 'react-native';
+import { RefreshControl, StatusBar, useWindowDimensions } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { moviesAPI } from '@/services';
 import { Images } from '@/constants';
@@ -40,15 +40,25 @@ function MovieDetails({ route }: Props): JSX.Element {
 		</Styled.Row>
 	);
 
+	const refreshControl = useCallback(
+		() => (
+			<RefreshControl
+				refreshing={isLoading}
+				onRefresh={handleFetchMovieDetails}
+			/>
+		),
+		[isLoading, handleFetchMovieDetails]
+	);
+
 	useEffect(() => {
 		handleFetchMovieDetails();
 	}, [handleFetchMovieDetails]);
 
-	if (isLoading) return <MovieSkeleton />;
+	if (isLoading && !movie) return <MovieSkeleton />;
 
 	if (!movie)
 		return (
-			<Styled.Screen>
+			<Styled.Screen refreshControl={refreshControl()}>
 				<ImageWithLoading
 					width={width}
 					height={imageHeight}
@@ -63,7 +73,7 @@ function MovieDetails({ route }: Props): JSX.Element {
 		);
 
 	return (
-		<Styled.Screen>
+		<Styled.Screen refreshControl={refreshControl()}>
 			<StatusBar barStyle="light-content" />
 			<ImageWithLoading
 				width={width}
