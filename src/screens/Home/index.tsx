@@ -27,13 +27,10 @@ function Home(): JSX.Element {
 		}
 	}, []);
 
-	const onEndReached = useCallback(
-		(info: { distanceFromEnd: number }) => {
-			if (!isLoading && info.distanceFromEnd > 0)
-				setCurrentPage((prevState) => prevState + 1);
-		},
-		[isLoading]
-	);
+	const onEndReached = useCallback(() => {
+		if (!isLoading && upComingMovies.length > 0)
+			setCurrentPage((prevState) => prevState + 1);
+	}, [isLoading, upComingMovies]);
 
 	const onRefresh = useCallback(() => {
 		if (upComingMovies.length === 0) {
@@ -53,7 +50,7 @@ function Home(): JSX.Element {
 	const renderListFooter = () => {
 		if (!isLoading) return null;
 		return (
-			<Styled.ListFooter>
+			<Styled.ListFooter testID="list-footer">
 				<ActivityIndicator size="large" color={theme.colors.secondary} />
 			</Styled.ListFooter>
 		);
@@ -73,8 +70,9 @@ function Home(): JSX.Element {
 	if (isLoading && upComingMovies.length === 0) return <MovieListSkeleton />;
 
 	return (
-		<Styled.Screen>
+		<Styled.Screen testID="home-screen">
 			<FlatList<IMovie>
+				testID="upcoming-movies-list"
 				extraData={currentPage}
 				data={upComingMovies}
 				contentContainerStyle={Styled.styles.list}
