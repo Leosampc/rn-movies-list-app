@@ -3,6 +3,7 @@ import { FlatList, ListRenderItem, ActivityIndicator } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { moviesAPI } from '@/services';
 import { IMovie } from '@/types';
+import { EmptyState } from '@/components';
 import { MovieListItem, MovieListSkeleton } from './components';
 import * as Styled from './styled';
 
@@ -61,11 +62,7 @@ function Home(): JSX.Element {
 	const renderEmptyList = () => {
 		if (isLoading) return null;
 		return (
-			<Styled.EmptyContainer>
-				<Styled.EmptyText color="grayPrimary">
-					{'Sorry, something went wrong :(\n Try again later.'}
-				</Styled.EmptyText>
-			</Styled.EmptyContainer>
+			<EmptyState text={'Sorry, something went wrong :(\n Try again later.'} />
 		);
 	};
 
