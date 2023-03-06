@@ -8,7 +8,7 @@ function MovieSkeleton(): JSX.Element {
 	const imageHeight = width * 0.56;
 
 	return (
-		<Styled.Screen>
+		<Styled.Screen testID="movie-skeleton">
 			<Skeleton width={width} height={imageHeight} />
 			<Styled.Body>
 				<Skeleton width={width * 0.5} height={22} radius={12} />

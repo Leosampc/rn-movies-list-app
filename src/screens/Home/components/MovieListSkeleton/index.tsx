@@ -8,7 +8,7 @@ function MovieListSkeleton(): JSX.Element {
 	const logoHeight = height * 0.18;
 	const logoWidth = logoHeight * 0.67;
 	return (
-		<Styled.Container>
+		<Styled.Container testID="movie-list-skeleton">
 			{[...new Array(2)].map((_, index) => (
 				<Styled.SkeletonContainer key={`key-${index}`}>
 					<Skeleton width={logoWidth} height={logoHeight} radius={7} />

@@ -27,6 +27,7 @@ function MovieListItem({ data }: Props): JSX.Element {
 
 	return (
 		<Styled.TouchableContainer
+			testID="movie-list-item"
 			activeOpacity={0.6}
 			onPress={handleNavigateToDetails}
 		>

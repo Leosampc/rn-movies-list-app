@@ -7,7 +7,7 @@ interface Props {
 }
 function Info({ title, description }: Props): JSX.Element {
 	return (
-		<Styled.Container>
+		<Styled.Container testID="info">
 			<Styled.Title>{title}</Styled.Title>
 			<Styled.Description>{description}</Styled.Description>
 		</Styled.Container>

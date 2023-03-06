@@ -29,6 +29,7 @@ function ImageWithLoading({
 
 	return (
 		<View
+			testID="image-with-loading"
 			style={[
 				style,
 				{

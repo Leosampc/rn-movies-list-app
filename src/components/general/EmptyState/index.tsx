@@ -7,7 +7,7 @@ interface Props {
 
 function EmptyState({ text }: Props): JSX.Element {
 	return (
-		<Styled.EmptyContainer>
+		<Styled.EmptyContainer testID="empty-state">
 			<Styled.EmptyText color="grayPrimary">{text}</Styled.EmptyText>
 		</Styled.EmptyContainer>
 	);

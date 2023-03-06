@@ -35,6 +35,7 @@ function Skeleton({ width, height, radius, style }: Props): JSX.Element {
 				},
 				style,
 			])}
+			testID="skeleton"
 		>
 			<Animated.View style={{ transform: [{ translateX }] }}>
 				<Styled.LinearGradient />

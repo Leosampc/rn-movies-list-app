@@ -19,7 +19,9 @@ interface Props extends TextProps {
 		| undefined;
 }
 
-export default styled.Text<Props>`
+export default styled.Text.attrs(() => ({
+	testID: 'text',
+}))<Props>`
 	color: ${({ theme, color }) =>
 		color ? theme.colors[color] : theme.colors.black};
 	font-weight: ${({ fontWeight }) => fontWeight ?? 'normal'};

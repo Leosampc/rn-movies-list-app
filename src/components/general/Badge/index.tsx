@@ -10,7 +10,7 @@ interface Props {
 }
 function StatusIndicator({ title, color, textColor }: Props): JSX.Element {
 	return (
-		<Styled.Container color={color}>
+		<Styled.Container testID="badge" color={color}>
 			<Text color={textColor ?? 'white'} fontWeight="600">
 				{title}
 			</Text>

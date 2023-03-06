@@ -65,7 +65,7 @@ function VectorIcon({
 	const iconColor = theme.colors[color as keyof IColors] ?? color;
 
 	return (
-		<View style={containerStyle}>
+		<View testID="vector-icon" style={containerStyle}>
 			<Icon {...props} color={iconColor} />
 		</View>
 	);
