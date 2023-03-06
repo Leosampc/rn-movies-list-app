@@ -27,6 +27,7 @@ export const Title = styled(Text)`
 export const SubTitle = styled(Text)`
 	font-size: 18px;
 	margin: 12px 0px;
+	color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Row = styled.View`

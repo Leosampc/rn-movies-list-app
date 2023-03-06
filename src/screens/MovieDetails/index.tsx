@@ -2,11 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { StatusBar, useWindowDimensions } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { moviesAPI } from '@/services';
+import { Images } from '@/constants';
 import { toHoursAndMinutes, formatDate } from '@/utils';
 import { GenreType, IMovie } from '@/types';
 import { RootStackParamList } from '@/navigation/types';
-import { ImageWithLoading, Badge } from '@/components';
-import { Info } from './components';
+import { Badge, ImageWithLoading } from '@/components';
+import { Info, MovieSkeleton } from './components';
 import * as Styled from './styled';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'MovieDetails'>;
@@ -14,6 +15,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'MovieDetails'>;
 function MovieDetails({ route }: Props): JSX.Element {
 	const { id } = route.params;
 	const { width } = useWindowDimensions();
+	const imageHeight = width * 0.56;
 
 	const [movie, setMovie] = useState<IMovie>();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -42,14 +44,30 @@ function MovieDetails({ route }: Props): JSX.Element {
 		handleFetchMovieDetails();
 	}, [handleFetchMovieDetails]);
 
-	if (!movie) return <Styled.Screen></Styled.Screen>;
+	if (isLoading) return <MovieSkeleton />;
+
+	if (!movie)
+		return (
+			<Styled.Screen>
+				<ImageWithLoading
+					width={width}
+					height={imageHeight}
+					source={Images.imageNotFound}
+				/>
+				<Styled.Body>
+					<Styled.Overview fontWeight="600">
+						{'Sorry, something went wrong, try again later.'}
+					</Styled.Overview>
+				</Styled.Body>
+			</Styled.Screen>
+		);
 
 	return (
 		<Styled.Screen>
 			<StatusBar barStyle="light-content" />
 			<ImageWithLoading
 				width={width}
-				height={width * 0.56}
+				height={imageHeight}
 				source={{
 					uri: `https://image.tmdb.org/t/p/w500/${movie.backdropPath}`,
 				}}
