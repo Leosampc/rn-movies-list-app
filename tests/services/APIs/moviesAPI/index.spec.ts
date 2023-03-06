@@ -1,6 +1,5 @@
 import { moviesAPI } from '@/services/APIs';
-import upComingMoviesMock from './upComingMoviesMock';
-import movieDetailsMock from './movieDetailsMock';
+import { movieDetailsMock, upComingMoviesMock } from 'tests/__mocks__';
 
 let apiSpy;
 describe('moviesAPI', () => {
