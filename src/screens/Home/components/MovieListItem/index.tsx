@@ -35,15 +35,15 @@ function MovieListItem({ data }: Props): JSX.Element {
 			<Styled.InfoContainer>
 				<Styled.Title fontWeight="600">{data.title}</Styled.Title>
 				<Styled.VoteContainer>
-					<Styled.VoteText>
+					<Styled.VoteContainer>
 						<Styled.VoteIcon
 							type="fontAwesome"
 							name="star"
 							size={16}
 							color="yellowPrimary"
 						/>
-						{`${data.voteAverage}/10`}
-					</Styled.VoteText>
+						<Styled.VoteText>{`${data.voteAverage}/10`}</Styled.VoteText>
+					</Styled.VoteContainer>
 					<Styled.VoteText>{`votes: ${data.voteCount}`}</Styled.VoteText>
 				</Styled.VoteContainer>
 				<Styled.ReleaseDate fontWeight="600">

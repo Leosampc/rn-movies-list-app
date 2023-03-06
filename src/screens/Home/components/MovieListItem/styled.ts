@@ -29,6 +29,7 @@ export const ReleaseDate = styled(Text)`
 export const VoteContainer = styled.View`
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 export const VoteText = styled(Text)`
