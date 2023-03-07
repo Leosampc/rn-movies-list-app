@@ -1,19 +1,23 @@
 module.exports = {
 	preset: 'react-native',
-	globals: {
-		'ts-jest': {
-			tsconfig: 'tsconfig.spec.json',
-			babelConfig: true,
-		},
-	},
 	roots: ['<rootDir>/src/', '<rootDir>/tests/'],
 	testMatch: ['<rootDir>/tests/**/?(*.)+(spec|test).[jt]s?(x)'],
 	testEnvironment: 'node',
 	testTimeout: 15000,
 	transform: {
 		'^.+\\.jsx$': 'babel-jest',
-		'^.+\\.tsx?$': 'ts-jest',
-		'^.+\\.ts?$': 'ts-jest',
+		'^.+\\.tsx?$': [
+			'ts-jest',
+			{
+				babelConfig: true,
+			},
+		],
+		'^.+\\.ts?$': [
+			'ts-jest',
+			{
+				babelConfig: true,
+			},
+		],
 	},
 	testPathIgnorePatterns: ['/node_modules', '/android', '/ios', '/e2e'],
 	transformIgnorePatterns: [
