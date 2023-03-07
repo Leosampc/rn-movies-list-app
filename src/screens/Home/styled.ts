@@ -25,7 +25,7 @@ export const SeparatorComponent = styled.View`
 
 export const ListFooter = styled.View`
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 20px;
 `;
 
 export const EmptyContainer = styled.View`

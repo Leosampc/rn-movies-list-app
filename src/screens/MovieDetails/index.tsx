@@ -91,7 +91,7 @@ function MovieDetails({ route }: Props): JSX.Element {
 					uri: `${API_IMAGE_URL}/${apiImageSize}/${movie.backdropPath}`,
 				}}
 			/>
-			<Styled.Body>
+			<Styled.Body testID="movie-details-content">
 				<Styled.Title fontWeight="600">{movie.title}</Styled.Title>
 				<Styled.Row>
 					<Styled.VoteIcon
