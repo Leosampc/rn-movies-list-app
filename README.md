@@ -103,6 +103,34 @@ yarn jest
 
 ##### Os testes de integração dependem do **Detox**, uma biblioteca de automação de testes end-to-end. Caso você nunca tenha ouvido falar, é bom dar uma conferida na [documentação oficial](https://wix.github.io/Detox/)
 
+###### Para executar o build da aplicação á ser testada:
+
+**iOS**
+
+```
+yarn build:ios
+```
+
+**Android**
+
+```
+yarn build:android
+```
+
+###### Para executar os testes e2e:
+
+**iOS**
+
+```
+yarn e2e:ios
+```
+
+**Android**
+
+```
+yarn e2e:android
+```
+
 ---
 
 ## Principais bibliotecas utilizadas
