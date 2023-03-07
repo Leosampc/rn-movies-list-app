@@ -145,6 +145,12 @@
 				"@typescript-eslint/await-thenable": "off",
 				"@typescript-eslint/unbound-method": "off"
 			}
+		},
+		{
+			"files": ["./e2e/*.spec.*"],
+			"rules": {
+				"import/named": "off"
+			}
 		}
 	]
 }
