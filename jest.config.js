@@ -15,7 +15,7 @@ module.exports = {
 		'^.+\\.tsx?$': 'ts-jest',
 		'^.+\\.ts?$': 'ts-jest',
 	},
-	testPathIgnorePatterns: ['/node_modules', '/android', '/ios'],
+	testPathIgnorePatterns: ['/node_modules', '/android', '/ios', '/e2e'],
 	transformIgnorePatterns: [
 		'node_modules/(?!(react-native|@react-native|@react-navigation|react-native-vector-icons)/)',
 	],
