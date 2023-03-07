@@ -16,7 +16,6 @@
   - [Como executar o projeto](#como-executar-o-projeto)
   - [Executando os testes da aplicação](#executando-os-testes-da-aplicacao)
   - [Principais bibliotecas utilizadas](#principais-bibliotecas-utilizadas)
-  - [Sobre as decisões tomadas](#sobre-as-decisoes-tomadas)
 
 #### Descrição
 
